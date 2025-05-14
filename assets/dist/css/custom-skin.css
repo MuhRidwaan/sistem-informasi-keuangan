@@ -1,0 +1,92 @@
+/* FONT & BACKGROUND UMUM */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: #f6f9fc;
+  color: #333;
+}
+
+/* NAVBAR */
+.skin-custom .main-header .navbar {
+  background: linear-gradient(to right, #89cff0, #e0f7fa);
+  border-bottom: none;
+  color: #fff;
+}
+
+.skin-custom .main-header .logo {
+  background: linear-gradient(to right, #6ca0dc, #a0d2eb);
+  color: #fff;
+  font-weight: bold;
+  border-bottom: none;
+}
+
+.skin-custom .main-header .logo:hover {
+  background: linear-gradient(to right, #5a9bd5, #94c9e0);
+}
+
+/* SIDEBAR */
+.skin-custom .main-sidebar {
+  background: linear-gradient(to bottom, #ffffff, #f0f5fa);
+  color: #333;
+}
+
+.skin-custom .sidebar-menu > li > a {
+  color: #333;
+  font-weight: 500;
+}
+
+.skin-custom .sidebar-menu > li.active > a,
+.skin-custom .sidebar-menu > li > a:hover {
+  background: linear-gradient(to right, #b2ebf2, #e0f7fa);
+  color: #007acc;
+}
+
+/* USER PANEL */
+.skin-custom .user-panel > .info > p {
+  color: #333;
+  font-weight: bold;
+}
+
+.skin-custom .user-panel > .info > a {
+  color: #3498db;
+}
+
+/* CONTENT WRAPPER */
+.skin-custom .content-wrapper,
+.skin-custom .main-footer {
+  background-color: #ffffff;
+}
+
+/* BOX STYLE */
+.skin-custom .box {
+  border-top-color: #74b9ff;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.skin-custom .box-header.with-border {
+  background-color: #f2f6fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* BUTTON STYLE */
+.skin-custom .btn-primary {
+  background: linear-gradient(to right, #6cbef1, #88e0ef);
+  border: none;
+  color: white;
+}
+
+.skin-custom .btn-primary:hover {
+  background: linear-gradient(to right, #58a6e1, #72cfe0);
+}
+
+/* TABLE HEADER */
+.skin-custom .table thead {
+  background-color: #e9f4fb;
+  color: #333;
+}
+
+/* FOOTER */
+.skin-custom .main-footer {
+  color: #777;
+  border-top: 1px solid #eaeaea;
+}
