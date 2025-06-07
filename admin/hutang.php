@@ -1,4 +1,16 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+
+$status_notif = isset($_GET['status']) ? $_GET['status'] : ''; // Periksa apakah parameter 'status' ada
+
+// Memeriksa apakah nilai parameter 'status' adalah 'pembayaran_sukses'
+if($status_notif == "pembayaran_sukses"){
+  // Mencetak tag script untuk menampilkan alert JavaScript
+  echo '<script type="text/javascript">
+          alert("Berhasil! Pembayaran hutang berhasil dilakukan.");
+        </script>';
+}
+
+?>
 
 <div class="content-wrapper">
 
@@ -156,7 +168,7 @@
 
                       <!-- Bayar hutang -->
 
-                      <form action="bayar_hutang.php" method="post">
+                    <form action="bayar_hutang.php" method="post">
                         <div class="modal fade" id="bayar_hutang_<?php echo $d['hutang_id'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">

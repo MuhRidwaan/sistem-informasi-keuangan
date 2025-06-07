@@ -23,7 +23,9 @@
           <div class="inner">
             <?php 
             $user_id = $_SESSION['id'];
-            $pemasukan = mysqli_query($koneksi,"SELECT SUM(bank_saldo) as saldo_kekayaan FROM bank WHERE user_id = '$user_id'");
+            $pemasukan = mysqli_query($koneksi,"SELECT SUM(bank_saldo) as saldo_kekayaan 
+            FROM bank 
+            WHERE user_id = '$user_id'");
             $p = mysqli_fetch_assoc($pemasukan);
             ?>
             <h4 style="font-weight: bolder"><?php echo "Rp. ".number_format($p['saldo_kekayaan'] ?? 0 )." ,-" ?></h4>
@@ -65,7 +67,7 @@
           <div class="icon">
             <i class="ion ion-cash"></i>
           </div>
-          <a href="laporan.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="rencana_pengeluaran.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
 
@@ -79,7 +81,7 @@
           <div class="icon">
             <i class="ion ion-cash"></i>
           </div>
-          <a href="laporan.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          <a href="rencana_pengeluaran.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
       </div>
 

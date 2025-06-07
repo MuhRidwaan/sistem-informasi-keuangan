@@ -4,7 +4,7 @@ $host     = "localhost";
 $user     = "root";
 $password = "";
 $database = "project_keuangan";
-$port     = 3307;
+$port     = 3306;
 
 $koneksi = mysqli_connect($host, $user, $password, $database, $port);
 

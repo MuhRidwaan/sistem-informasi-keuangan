@@ -17,12 +17,41 @@
         <div class="box box-info">
           <div class="box-header">
             <h3 class="box-title">
-              <?php
-              $bulan_ini = date('Y-m');
-              $sql = mysqli_query($koneksi, "SELECT SUM(budget) AS total_pengeluaran FROM rencana_bulanan WHERE DATE_FORMAT(bulan, '%Y-%m') = '$bulan_ini'");
-              $data = mysqli_fetch_array($sql);
-              echo "Total Rencana Pengeluaran Bulan ini : Rp. " . number_format($data['total_pengeluaran'] ?? 0) . " ,-";
-              ?>
+     <?php
+$bulan_ini = date('Y-m');
+
+// Ambil total budget rencana bulan ini
+$sql_budget = mysqli_query($koneksi, "
+    SELECT SUM(budget) AS total_rencana
+    FROM rencana_bulanan
+    WHERE DATE_FORMAT(bulan, '%Y-%m') = '$bulan_ini'
+");
+$data_budget = mysqli_fetch_array($sql_budget);
+$total_rencana = $data_budget['total_rencana'] ?? 0;
+
+// Ambil total pengeluaran real bulan ini dari tabel transaksi
+$sql_pengeluaran = mysqli_query($koneksi, "
+    SELECT SUM(transaksi_nominal) AS total_pengeluaran
+    FROM transaksi
+    WHERE transaksi_jenis = 'Pengeluaran'
+    AND DATE_FORMAT(transaksi_tanggal, '%Y-%m') = '$bulan_ini'
+");
+$data_pengeluaran = mysqli_fetch_array($sql_pengeluaran);
+$total_pengeluaran = $data_pengeluaran['total_pengeluaran'] ?? 0;
+
+// Hitung sisa budget
+$sisa_budget = $total_rencana - $total_pengeluaran;
+
+// Tampilkan hasil
+echo "Total Rencana Budget Bulan ini : Rp. " . number_format($total_rencana, 0, ',', '.') . " ,-<br>";
+echo "<span style='color:red'><b>Total Pengeluaran Real Bulan ini : Rp. " . number_format($total_pengeluaran, 0, ',', '.') . " ,-</b></span><br>";
+
+$sisa_color = ($sisa_budget < 0) ? 'red' : 'green';
+echo "<span style='color:$sisa_color'><b>Sisa Budget Bulan ini : Rp. " . number_format($sisa_budget, 0, ',', '.') . " ,-</b></span>";
+
+?>
+
+
             </h3>
             <div class="btn-group pull-right">
               <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalTambahKategori">

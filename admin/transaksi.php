@@ -1,4 +1,23 @@
-<?php include 'header.php'; ?>
+<?php 
+include 'header.php'; 
+
+if (isset($_GET['pesan'])) {
+    $alertMessages = [
+        'gagal'         => 'Saldo tidak mencukupi!',
+        'err_anggaran'  => 'Buat dulu rencana pengeluaran, Boy!',
+        'duit_kurang'   => 'Aduhh Boyy, uangnya kurang!'
+    ];
+
+    $pesan = $_GET['pesan'];
+
+    if (array_key_exists($pesan, $alertMessages)) {
+        echo "<script>alert('{$alertMessages[$pesan]}');</script>";
+    }
+}
+?>
+
+
+
 
 <div class="content-wrapper">
 

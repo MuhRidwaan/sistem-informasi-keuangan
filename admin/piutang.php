@@ -1,4 +1,9 @@
-<?php include 'header.php'; ?>
+<?php 
+include 'header.php'; 
+session_start();
+$id = $_SESSION['id'];
+
+?>
 
 <div class="content-wrapper">
 
@@ -47,6 +52,7 @@
                         <input type="text" name="tanggal" required="required" class="form-control datepicker2">
                       </div>
 
+                      <input type="text" name="create_who" value="<?php echo $id ?>" hidden>
                       <div class="form-group">
                         <label>Nominal</label>
                         <input type="number" name="nominal" required="required" class="form-control" placeholder="Masukkan Nominal ..">
@@ -84,7 +90,7 @@
                   <?php 
                   include '../koneksi.php';
                   $no=1;
-                  $data = mysqli_query($koneksi,"SELECT * FROM piutang");
+                  $data = mysqli_query($koneksi,"SELECT * FROM piutang where create_who = '$id' order by piutang_id desc");
                   while($d = mysqli_fetch_array($data)){
                     ?>
                     <tr>
