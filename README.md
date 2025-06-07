@@ -46,10 +46,6 @@ Sistem Manajemen Keuangan adalah aplikasi sederhana yang dibangun menggunakan PH
      Username: admin
      Password: admin123
 
-     Login Manajemen
-     Username: manajemen
-     Password: manajemen123
-
 5. **Mulai Mengelola Keuangan:**
    - Setelah login, mulailah mencatat transaksi, mengelola kategori, dan memanfaatkan fitur lainnya.
 
